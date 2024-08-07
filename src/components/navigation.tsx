@@ -65,7 +65,7 @@ export default function Navigation() {
               <SelectValue placeholder={language.name} />
             </SelectTrigger>
             <SelectContent>
-              {idiom.map((item) => <SelectItem value={item.value}>{item.name}</SelectItem> )}
+              {idiom.map((item, index) => <SelectItem key={index} value={item.value}>{item.name}</SelectItem> )}
             </SelectContent>
           </Select>
         </div>
