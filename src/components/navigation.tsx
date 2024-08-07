@@ -1,19 +1,37 @@
+"use client"
+
 import { NavigationType } from "@/types/navigation"
 import { HomeIcon, RocketLaunchIcon, UserCircleIcon, WrenchIcon } from "@heroicons/react/24/solid"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+
 
 import Banner from "./banner"
 import AboutMe from "./about-me"
 import Skills from "./skills"
 import Projects from "./projects"
+import { useState } from "react"
 
 const navigation: NavigationType[]  = [
-  { name: "home", component: <Banner />, icon: <HomeIcon/>, selected: true },
-  { name: "about me", component: <AboutMe />, icon: <UserCircleIcon/>, selected: false },
-  { name: "skills", component: <Skills />, icon: <WrenchIcon/>, selected: false },
-  { name: "projects", component: <Projects />, icon: <RocketLaunchIcon/>, selected: false }
+  { name: "inicio", component: <Banner />, icon: <HomeIcon/>, selected: true },
+  { name: "sobre mim", component: <AboutMe />, icon: <UserCircleIcon/>, selected: false },
+  { name: "habilidades", component: <Skills />, icon: <WrenchIcon/>, selected: false },
+  { name: "projetos", component: <Projects />, icon: <RocketLaunchIcon/>, selected: false }
+]
+
+const idiom = [
+  { name: "🇧🇷 PT-BR", value: "pt-BR" },
+  { name: "🇺🇸 EN-US", value: "en-US" },
 ]
 
 export default function Navigation() {
+  const [language, setLanguage] = useState(idiom[0])
+
   return (
     <div className="fixed w-full top-0 left-0"> 
       <div className="sm:hidden">
@@ -33,7 +51,7 @@ export default function Navigation() {
               key={item.name}
               className={`
                 px-4 py-2 text-sm font-medium text-gray-900 hover:text-gray-800 flex gap-2 rounded-lg uppercase cursor-pointer
-                ${item.selected? "bg-gray-100" : "bg-transparent"}
+                ${item.selected? "bg-stone-200" : "bg-transparent"}
               `}
             >
               <span className="size-5">{item.icon}</span>
@@ -42,10 +60,14 @@ export default function Navigation() {
           ))}
         </div>
         <div className="px-4 flex justify-center items-center">
-          <select className="px-2 py-1 border rounded-lg bg-white" name="" id="">
-            <option selected value="pt-BR">🇧🇷 PT-BR</option>
-            <option value="es">🇺🇸 EN-US</option>
-          </select>
+          <Select>
+            <SelectTrigger className="w-[110px]">
+              <SelectValue placeholder={language.name} />
+            </SelectTrigger>
+            <SelectContent>
+              {idiom.map((item) => <SelectItem value={item.value}>{item.name}</SelectItem> )}
+            </SelectContent>
+          </Select>
         </div>
       </div>
     </div>
