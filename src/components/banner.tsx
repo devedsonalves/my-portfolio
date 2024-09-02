@@ -1,6 +1,6 @@
 export default function Banner() {
   return (
-    <section className="bg-gray-50 max-h-screen">
+    <section className="max-h-screen min-h-screen flex justify-center items-center">
       <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">
         <div className="mx-auto max-w-xl text-left md:text-center">
           <h1 className="text-3xl font-extrabold sm:text-5xl">
@@ -14,14 +14,14 @@ export default function Banner() {
 
           <div className="mt-8 flex md:flex-wrap justify-start md:justify-center gap-4">
             <a
-              className="block w-fit rounded bg-black px-4 md:px-12 py-3 text-sm font-medium text-white shadow hover:bg-stone-400 focus:outline-none focus:ring active:bg-red-500 sm:w-auto"
+              className="block w-fit rounded bg-black px-4 md:px-12 py-3 text-sm font-medium text-white shadow hover:bg-stone-400 focus:outline-none focus:ring active:bg-stone-500 sm:w-auto"
               href="#"
             >
               Curriculo
             </a>
 
             <a
-              className="block w-fit rounded px-4 md:px-12 py-3 text-sm font-medium text-black border shadow-md hover:text-stone-400 focus:outline-none focus:ring active:text-red-500 sm:w-auto"
+              className="block w-fit rounded px-4 md:px-12 py-3 text-sm font-medium text-black border shadow-md hover:text-stone-400 focus:outline-none focus:ring active:text-stone-500 sm:w-auto"
               href="#"
             >
               Blog
