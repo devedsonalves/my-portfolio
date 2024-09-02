@@ -20,8 +20,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" suppressHydrationWarning>
-      <body className={font.className}>
-        <div className="overflow-hidden max-h-screen">{children}</div>
+      <body className={font.className + " bg-stone-50"}>
+        <div className="overflow-x-hidden max-h-screen">{children}</div>
         <Toaster />
       </body>
     </html>
